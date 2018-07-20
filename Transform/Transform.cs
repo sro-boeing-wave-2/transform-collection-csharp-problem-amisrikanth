@@ -4,11 +4,16 @@ using System.Collections.Generic;
 
 namespace Transform
 {
-    public static class Transform 
+    public delegate int operation(int n);
+    public static class Transform
     {
-        public static void Map()
+        public static int[] Map(this int[] numbers, operation Operate)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < numbers.Count(); i++)
+            {
+                numbers[i] = Operate(numbers[i]);
+            }
+            return numbers;
         }
     }
 }
